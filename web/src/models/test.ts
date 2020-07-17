@@ -1,25 +1,13 @@
+import { VuexModule, Module, Mutation, Action, getModule } from 'vuex-module-decorators'
 import store from '@/store/index'
-import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 
-@Module({ namespaced: true, dynamic: true, store, name: 'Test'})
-class Test extends VuexModule {
-  
-  wheels = 2
+@Module({namespaced: true, dynamic: true, name: 'Test', store})
+export default class Test extends VuexModule {
+    public wheels = 0
 
-  @Mutation
-  addWheel(n: number): void {
-      this.wheels = this.wheels + n
-  }
-
-  get axles(): number {
-    return this.wheels
-  }
-
-  @Action
-  async fetchNewWheels() {
-    this.context.commit('addWheel', 2)
-  }
-
+    @Mutation
+    public setWheels(n: number) {
+        this.wheels = n
+    }
 }
 
-export default Test
