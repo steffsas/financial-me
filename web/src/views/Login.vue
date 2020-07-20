@@ -58,7 +58,7 @@ export default class About extends Vue {
 
 	clickPasswordIcon() {
 		this.showPassword = !this.showPassword;
-		console.log(`test`);
+		console.log(`test 123`);
 	}
 }
 </script>
